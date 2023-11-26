@@ -1,0 +1,22 @@
+<h3>Listado de Heroes</h3>
+
+<!--? Aqui le esamos diciendo que en caso de que no haya nada que borrar, -->
+<!--? que muestre accione la variable local "nothingWasDeleted" ubicada en el template-->
+<div *ngIf="deletedHero; else nothingWasDeleted">
+  <h3>Heroe borrado: <small class="text-danger"> {{deletedHero}} </small></h3>
+</div>
+
+<!--? El ng-template es como un div invisible, al usarlo no aparece al inspeccionar -->
+<ng-template #nothingWasDeleted>
+  <h3 *ngIf="!deletedHero">No ha borrado nada</h3>
+</ng-template>
+
+<button *ngIf="heroeNames.length>0" (click)="removeLastHero()" class="btn btn-outline-danger">
+  Borrar ultimo heroe
+</button>
+
+<ul class="mt-2 list-group">
+  <li *ngFor="let name of heroeNames" class="list-group-item">
+    {{ name }}
+  </li>
+</ul>
