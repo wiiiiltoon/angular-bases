@@ -1,0 +1,37 @@
+<h4>Listado</h4>
+<ul class="list-group">
+  <!--? De esta manera esta recogiendo el indice en cada vuelta -->
+  <!--? El 'first' o 'last' es una variable propia de ngFor -->
+  <!--? El 'even' sirve para saber si es un numero par -->
+  <!--? El 'odd' sirve para saber si es un numero impar -->
+
+  <!--? El ngClass lo que permite es ingresar X expression de js
+  <!--?  en base a una condicion -->
+  <li *ngFor="
+    let character of characterList;
+    let i  = index;
+    let isFirst = first;
+    let isLast = last;
+    let isEven = even;
+    let isOdd = odd;"
+    class="list-group-item d-flex justify-content-between align-items-center"
+    [ngClass]="{
+      'list-group-item-dark': isLast,
+      'list-group-item-primary': isEven
+    }">
+
+    <div>
+      <span class="text-primary">{{i + 1}}. </span>
+      <span>{{character.name}} - </span>
+      <strong>Power: </strong>
+      <span>{{character.power}}</span>
+
+      <!-- <span> - Es el primero: {{ isFirst }}</span>
+    <span> - Es el utlimo: {{ isLast }}</span>
+    <span> - Es par: {{ isEven }}</span>
+    <span> - Es impar: {{ isOdd }}</span>F -->
+    </div>
+
+    <button (click)="deleteCharacterByID(character.id)" class="btn btn-danger">X</button>
+  </li>
+</ul>

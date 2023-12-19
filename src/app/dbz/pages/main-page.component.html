@@ -1,0 +1,17 @@
+<h1>Dragon ball z: Personajes</h1>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <!-- onDelete -->
+    <!--? Esta es la manera en la que llamamos a la variable de un hijo -->
+    <dbz-list [characterList]="characters"
+    (onDelete)="onDeleteCharacter($event)"></dbz-list>
+
+  </div>
+  <div class="col">
+    <!--? Aqui estamos a la escucha de un evento y lanzamos la funcion mandando
+    <!--? el $event que esta emtidio desde el addCharacter.ts -->
+    <dbz-add-character (onNewCharacter)="onNewCharacter($event)" ></dbz-add-character>
+  </div>
+</div>

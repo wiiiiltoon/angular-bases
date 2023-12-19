@@ -6,7 +6,7 @@ import { HeroesModule } from './heroes/components/heroes.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListComponent } from './heroes/list/list.component';
+import { DbzModule } from './dbz/dbz.module';
 
 @NgModule({
   //? Para poder utilizar los componentes creados deben de asignarse asi
@@ -18,6 +18,7 @@ import { ListComponent } from './heroes/list/list.component';
     AppRoutingModule,
     CounterModule,
     HeroesModule,
+    DbzModule
   ],
   providers: [],
   bootstrap: [AppComponent]
